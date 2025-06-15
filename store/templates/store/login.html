@@ -1,0 +1,31 @@
+{% extends 'store/main.html' %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+
+<div class="container col-lg-6">
+    <div class="box-element" data-aos="fade-up"
+  data-aos-delay="200"
+  data-aos-duration="1500"
+  data-aos-easing="ease-in-out">
+        <h1>Login</h1>
+        {% if error %}
+            <p style="color: red;">{{ error }}</p>
+        {% endif %}
+        <form method="post">
+            {% csrf_token %}
+            <div class="form-field">
+                <label>Username:</label><br>
+                <input type="text" name="username" class="form-control" required>
+            </div>
+            <div class="form-field">
+                <label>Password:</label><br>
+                <input type="password" name="password" class="form-control" required>
+            </div>
+            <br>
+            <button type="submit" class="btn btn-success">Login</button>
+        </form>
+    </div>
+</div>
+
+{% endblock content %}
